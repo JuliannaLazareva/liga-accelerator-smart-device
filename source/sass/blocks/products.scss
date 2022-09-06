@@ -1,0 +1,66 @@
+.products {
+  padding-top: 64px;
+  padding-bottom: 140px;
+  background-color: $color-default-black;
+}
+
+.products h2 {
+  margin-bottom: 54px;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 51px;
+  color: $color-default-white;
+}
+
+.products__card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 85px;
+  padding: 0;
+  //display: flex;
+  //flex-wrap: wrap;
+  //align-items: stretch;
+}
+
+.products__card-list li {
+  position: relative;
+}
+
+.products__card-list img {
+  width: 350px;
+  height: 650px;
+}
+
+.products__card-list h3 {
+  position: absolute;
+  top: 47px;
+  left: 40px;
+  max-width: 190px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: $color-default-white;
+}
+
+.products__card-list span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  border-radius: 3px 0 0 0;
+  background-color: $color-blue;
+
+  &::before {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    width: 5px;
+    height: 9px;
+    background-image: url("../img/card_arrow.svg");
+    content: "";
+  }
+}

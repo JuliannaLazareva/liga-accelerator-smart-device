@@ -1,0 +1,160 @@
+.advantages {
+  padding-top: 120px;
+  padding-bottom: 60px;
+
+  @include vp-1023 {
+    padding-top: 80px;
+  }
+
+  @include vp-767 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}
+
+.advantages__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;//595px 595px;
+  gap: 30px;
+
+  @include vp-767 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.advantages__block {
+  //width: 595px;
+  min-height: 300px;
+  padding: 39px 38px;
+  border: 1px solid #ebebeb;
+  border-left: 5px solid $color-blue;
+
+  @include vp-1023 {
+    //width: 320px;
+    min-height: 360px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+  }
+
+  @include vp-767 {
+    //min-height: 340px;
+    padding: 29px 25px 35px;
+  }
+}
+
+.advantages__block:hover {
+  border-color: $color-blue;
+  color: $color-smoky-white;
+  background-color: $color-blue;
+
+  & h3 {
+    color: $color-smoky-white;
+  }
+
+  & svg {
+    fill: $color-smoky-white;
+  }
+}
+
+.advantages__block svg {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 14px;
+  fill: $color-blue;
+
+  @include vp-1023 {
+    margin-bottom: 8px;
+  }
+
+  @include vp-767 {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.advantages__block h3 {
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: $color-blue;
+
+  @include vp-1023 {
+    margin-bottom: 9px;
+  }
+
+  @include vp-767 {
+    font-size: 20px;
+  }
+}
+
+.advantages__block p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 135%;
+
+  @include vp-767 {
+    font-size: 14px;
+  }
+}
+
+.advantages__block br {
+  display: none;
+
+  @include vp-1023 {
+    display: block;
+  }
+}
+
+/*.advantages__block--personalization {
+  @include vp-1023 {
+    padding-left: 41px;
+  }
+}*/
+
+.advantages__block--personalization svg {
+  @include vp-1023 {
+    margin-bottom: 4px;
+  }
+}
+
+.advantages__block--personalization h3,
+.advantages__block--confidentiality h3 {
+  @include vp-1023 {
+    margin-bottom: 5px;
+  }
+}
+
+@include vp-767 {
+  .advantages__block--deadlines,
+  .advantages__block--suppliers {
+    min-height: 340px;
+  }
+
+  .advantages__block--deadlines p,
+  .advantages__block--suppliers p {
+    max-width: 215px;
+  }
+
+  .advantages__block--confidentiality,
+  .advantages__block--personalization {
+    min-height: 325px;
+  }
+
+  .advantages__block--confidentiality svg,
+  .advantages__block--personalization svg {
+    margin-bottom: 13px;
+  }
+
+  .advantages__block--confidentiality h3,
+  .advantages__block--personalization h3 {
+    margin-bottom: 13px;
+  }
+
+  .advantages__block--confidentiality p,
+  .advantages__block--personalization p {
+    max-width: 200px;
+  }
+}

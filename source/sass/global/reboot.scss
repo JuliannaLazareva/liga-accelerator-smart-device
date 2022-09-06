@@ -16,7 +16,7 @@ html {
   font-weight: 400;
   font-size: $fz-default;
   line-height: 24px;
-  font-family: $ff-placeholder;
+  font-family: $ff-pt-mono;
   color: $color-default-black;
 
   -webkit-font-smoothing: antialiased;
@@ -25,13 +25,27 @@ html {
   text-rendering: optimizeLegibility;
   // если по прежнему есть проблемы с выравниванием
   // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
+
+  //Плавный скролл
+  scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
   height: 100%;
 
-  background-color: $color-default-white;
+  background-color: $color-bg-white;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: $ff-roboto-condensed;
+}
+
+li {
+  list-style-type: none;
 }
 
 a {

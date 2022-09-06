@@ -1,0 +1,29 @@
+@include vp-767 {
+  .accordion__item:not(.accordion__item_show) .accordion__body {
+    display: none;
+  }
+
+  .accordion__header {
+    position: relative;
+  }
+
+  .accordion__header::before {
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 15px;
+    height: 1px;
+    background-color: $color-grey;
+    content: "";
+  }
+
+  .accordion__item:not(.accordion__item_show) .accordion__header::after {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    width: 1px;
+    height: 15px;
+    background-color: $color-grey;
+    content: "";
+  }
+}
