@@ -35,10 +35,22 @@
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     min-height: 100%;
-    padding: 60px 40px;
+    padding: 146px 718px 84px 702px;
+
+    @include vp-1919 {
+      padding: 146px 450px 84px 471px;
+    }
+
+    @include vp-1439 {
+      padding: 146px 390px 84px;
+    }
+
+    @include vp-1279 {
+      padding: 146px 250px 84px;
+    }
 
     @include vp-767 {
       padding: 60px 16px;
@@ -59,21 +71,40 @@
   &__content {
     position: relative;
 
-    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 500px;
     padding: 40px;
 
-    background-color: $color-default-white;
+    color: $color-default-white;
+    background-color: $color-blue;
 
     @include vp-767 {
       width: 100%;
       padding: 20px;
     }
+
+    & h2 {
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 42px;
+    }
+
+    & p {
+      margin: 0;
+      margin-bottom: 40px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
 
   &__close-btn {
     position: absolute;
-    top: 22px;
-    right: 22px;
+    top: 15px;
+    right: 15px;
     z-index: 1;
 
     width: 40px;
@@ -83,6 +114,10 @@
     background: $color-transparent;
     border: none;
     cursor: pointer;
+
+    & svg {
+      fill: $color-default-white;
+    }
   }
 
   &--responsive {
@@ -116,4 +151,100 @@
 
     pointer-events: auto;
   }
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modal__form input,
+.modal__form textarea {
+  margin-bottom: 20px;
+  padding: 15px;
+  color: $color-default-white;
+  background-color: rgba(4, 20, 39, 0.15);
+  border: none;
+  border-radius: 3px;
+}
+
+.modal__form input::placeholder,
+.modal__form textarea::placeholder {
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-default-white;
+}
+
+.modal__form textarea {
+  min-height: 155px;
+  margin-bottom: 17px;
+  padding-top: 25px;
+}
+
+.modal__form-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.modal__form-wrap label {
+  position: relative;
+  align-self: flex-start;
+  padding-left: 35px;
+}
+
+.modal__mark {
+  position: absolute;
+  top: 11px;
+  left: 8px;
+  width: 15px;
+  height: 15px;
+  background-color: inherit;
+  border: 1px solid $color-default-white;
+  border-radius: 3px;
+
+  @include vp-1023 {
+    top: 8px;
+  }
+
+  @include vp-767 {
+    top: 7px;
+    left: 4px;
+  }
+}
+
+input[type="checkbox"]:checked + .modal__mark::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 4px;
+  border-left: 2px solid $color-default-white;
+  border-bottom: 2px solid $color-default-white;
+  transform: rotate(-45deg);
+  content: "";
+}
+
+.modal__label {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+.modal__submit-button {
+  display: inline-block;
+  width: 100%;
+  padding: 13px 25px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: $color-default-white;
+  background-color: $color-default-black;
 }

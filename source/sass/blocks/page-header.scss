@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   width: 100%;
-  //min-height: 120px;
   padding: 28px 0 35px;
   background:  linear-gradient(180deg, $color-default-black 84.9%, rgba(4, 24, 39, 0) 100%);
   z-index: 2;
@@ -20,23 +19,10 @@
 .page-header__wrapper {
   display: flex;
   align-items: flex-start;
-
-  /*@include vp-1919 {
-    padding: 0 150px;
-  }
-
-  @include vp-1439 {
-    padding: 0 100px;
-  }
-
-  @include vp-1279 {
-    padding: 0 70px;
-  }*/
 }
 
 .page-header__logo {
   width: 215px;
-  //margin-right: 85px;
 
   @include vp-767 {
     width: 35px;
@@ -44,12 +30,9 @@
 }
 
 .page-header__contacts {
-  //display: grid;
- // grid-template-columns: repeat(3, auto);
-  //gap: 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 220px 290px 215px;
+  gap: 30px;
   align-items: center;
   max-width: 785px;
   margin-left: auto;
@@ -60,30 +43,30 @@
   }
 
   @include vp-1023 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     max-width: 120px;
+    margin-top: 4px;
     margin-right: 10px;
   }
 
   @include vp-767 {
+    margin-top: 0;
     margin-right: 0;
   }
 }
 
 .page-header__contacts p {
     min-width: 70px;
-    margin: 10px 113px 10px 0;
     font-size: 16px;
     line-height: 18px;
 
     @include vp-1439 {
-      margin-right: 70px;
+      margin: 10px 70px 10px 0;
       min-width: auto;
       font-size: 14px;
     }
-
-    //@include vp-1279 {
-    //  margin-right: 35px;
-    //}
 
     @include vp-1023 {
       margin-right: 0;
@@ -95,6 +78,16 @@
   padding: 5px;
   padding-left: 35px;
   color: $color-smoky-white;
+
+  @include vp-1023 {
+    padding: 5px;
+  }
+
+  &:focus,
+  &:hover {
+    outline: none;
+    opacity: 0.5;
+  }
 }
 
 .page-header__contacts span {
@@ -119,6 +112,12 @@
   border: 1px solid $color-default-white;
   border-radius: 3px;
 
+  &:focus,
+  &:hover {
+    outline: none;
+    opacity: 0.5;
+  }
+
   @include vp-1439 {
     margin: 0;
     font-size: 12px;
@@ -129,7 +128,6 @@
     display: none;
   }
 }
-
 
 .page-header__email {
   @include vp-1023 {
@@ -149,12 +147,13 @@
 }
 
 .page-header__phone {
-  margin-right: 50px;
-
   @include vp-1439 {
     margin-right: 0;
   }
-  //margin-right: 166px;
+
+  @include vp-1023 {
+    margin-right: 30px;
+  }
 
   &::before {
     position: absolute;

@@ -5,40 +5,16 @@ import {initModals} from './modules/modals/init-modals';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  // Utils
-  // ---------------------------------
-
-  //const acc = document.querySelectorAll(".accordion__item");
-
-  //for (let i = 0; i < acc.length; i++) {
-  //  acc[i].addEventListener("click", function() {
-      /* Переключение между добавлением и удалением класса "accordion__item_show",
-      чтобы выделить кнопку, управляющую панелью */
-  //    this.classList.toggle("accordion__item_show");
-
-      /* Переключение между скрытием и отображением активной панели */
-    //  const panel = this.document.querySelectorAll(".accordion__body");
-      //if (panel.style.display === "block") {
-        //panel.style.display = "none";
-    //  } else {
-      //  panel.style.display = "block";
-      //}
-    //});
-  //}
-
   const acc = document.querySelectorAll(".accordion__item");
-  const panel = document.querySelectorAll(".accordion__body");
 
   for (let i = 0; i < acc.length; i++) {
-      acc[i].onclick = function() {
-        const setClasses = !this.classList.contains('accordion__item_show');
-          setClass(acc, 'accordion__item_show', 'remove');
-          setClass(panel, 'show', 'remove');
+    acc[i].onclick = function() {
+      const setClasses = !this.classList.contains('accordion__item--show');
+        setClass(acc, 'accordion__item--show', 'remove');
 
-           if (setClasses) {
-              this.classList.toggle("accordion__item_show");
-              this.nextElementSibling.classList.toggle("show");
-          }
+          if (setClasses) {
+            this.classList.toggle("accordion__item--show");
+        }
       }
   }
 
@@ -48,27 +24,107 @@ window.addEventListener('DOMContentLoaded', () => {
       }
   }
 
+  /*
+
+
+  const onOpenAcc = () => {
+    acc.classList.add('accordion__item--opened');
+    acc.classList.remove('accordion__item--closed');
+  };
+
+  function onCloseAcc() {
+    acc.classList.add('accordion__item--closed');
+    acc.classList.remove('accordion__item--opened');
+  }
+
+  acc.classList.remove('accordion__item--nojs');
+
+  acc.forEach((accordion) => {
+    accordion.addEventListener('click', function () {
+      if (accordion.classList.contains('accordion__item--closed')) {
+        onOpenAcc();
+      } else {
+        onCloseAcc();
+      }
+    });
+  })*/
+
+
+
   //Функция открытия текста по клику на кнопку "Подробнее"
   const btnText = document.querySelector(".about-company__button");
   const breakText = document.querySelector(".about-company__break-text");
   const moreTextMobile = document.querySelector(".about-company__more--mobile-only");
   const moreTextTablet = document.querySelector(".about-company__more--tablet");
+  const moreTextTablet2 = document.querySelector(".about-company__more--tablet-2");
 
   function readMore() {
     if (breakText.style.display === "none") {
       breakText.style.display = "inline";
       btnText.innerHTML = "Подробнее";
-      moreTextMobile.style.display = "none";
-      moreTextTablet.style.display = "none";
+      if (document.documentElement.clientWidth < 767) {
+        moreTextMobile.style.display = "none";
+        moreTextTablet.style.display = "none";
+        moreTextTablet2.style.display = "none";
+      } else {
+        moreTextTablet.style.display = "none";
+        moreTextTablet2.style.display = "none";
+      }
     }  else {
       breakText.style.display = "none";
       btnText.innerHTML = "Свернуть";
-      moreTextMobile.style.display = "inline";
-      moreTextTablet.style.display = "inline";
+      if (document.documentElement.clientWidth < 767) {
+        moreTextTablet.style.display = "inline";
+        moreTextTablet2.style.display = "inline";
+      } else {
+        moreTextMobile.style.display = "inline";
+        moreTextTablet.style.display = "inline";
+        moreTextTablet2.style.display = "inline";
+      }
     }
   }
 
   btnText.addEventListener('click', readMore);
+
+  //Маска телефона
+
+  [].forEach.call( document.querySelectorAll('[type="tel"]'), function(input) {
+    var keyCode;
+    function mask(event) {
+        event.keyCode && (keyCode = event.keyCode);
+        var pos = this.selectionStart;
+        if (pos < 3) event.preventDefault();
+        var matrix = "+7 (___) ___ ____",
+            i = 0,
+            def = matrix.replace(/\D/g, ""),
+            val = this.value.replace(/\D/g, ""),
+            new_value = matrix.replace(/[_\d]/g, function(a) {
+                return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+            });
+        i = new_value.indexOf("_");
+        if (i != -1) {
+            i < 5 && (i = 3);
+            new_value = new_value.slice(0, i)
+        }
+        var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+            function(a) {
+                return "\\d{1," + a.length + "}"
+            }).replace(/[+()]/g, "\\$&");
+        reg = new RegExp("^" + reg + "$");
+        if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+        if (event.type == "blur" && this.value.length < 5)  this.value = ""
+    }
+
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false)
+
+  });
+
+
+  // Utils
+  // ---------------------------------
 
   iosVhFix();
 

@@ -1,7 +1,17 @@
 .products {
   padding-top: 64px;
-  padding-bottom: 140px;
+  padding-bottom: 124px;
   background-color: $color-default-black;
+
+  @include vp-1023 {
+    padding-top: 55px;
+    padding-bottom: 59px;
+  }
+
+  @include vp-767 {
+    padding-top: 47px;
+    padding-bottom: 72px;
+  }
 }
 
 .products h2 {
@@ -10,6 +20,27 @@
   font-size: 36px;
   line-height: 51px;
   color: $color-default-white;
+
+  @include vp-1023 {
+    margin-bottom: 38px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.products h3 {
+  display: none;
+
+  @include vp-767 {
+    display: block;
+    margin-bottom: 28px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 39px;
+    color: $color-default-white;
+  }
 }
 
 .products__card-list {
@@ -18,29 +49,133 @@
   grid-template-rows: auto;
   gap: 85px;
   padding: 0;
-  //display: flex;
-  //flex-wrap: wrap;
-  //align-items: stretch;
+
+  @include vp-1919 {
+    gap: 75px;
+  }
+
+  @include vp-1439 {
+    gap: 36px;
+  }
+
+  @include vp-1279 {
+    gap: 10px;
+  }
+
+  @include vp-1023 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
-.products__card-list li {
+.products__card-item a:hover {
+  opacity: 0.8;
+}
+
+.products__card-item div {
   position: relative;
-}
-
-.products__card-list img {
+  background-size: 415%;
   width: 350px;
   height: 650px;
+  background-color: $color-bg-card;
+
+  @media (min-width: 1920px) {
+    background-image: url('../img/card_bg.jpg');
+
+
+    @include retina {
+      background-image: url('../img/card_bg@2x.jpg');
+    }
+  }
+
+  @include vp-1919 {
+    background-image: url('../img/card_bg.jpg');
+
+    @include retina {
+      background-image: url('../img/card_bg@2x.jpg');
+    }
+  }
+
+  @include vp-1279 {
+    width: 280px;
+    height: 520px;
+  }
+
+  @include vp-1023 {
+    width: 670px;
+    height: 250px;
+    background-size: 225%;
+  }
+
+  @include vp-767 {
+    width: 270px;
+    background-size: 600%;
+  }
 }
 
-.products__card-list h3 {
+.products__card-item--card-1 div {
+  background-position: 16% 69%;
+
+  @include vp-1023 {
+    background-position: 30% 97%;
+  }
+
+  @include vp-767 {
+    background-position: 31% 52%;
+  }
+}
+
+.products__card-item--card-2 div {
+  background-position: 47% 71%;
+
+  @include vp-1023 {
+    background-position: 76% 55%;
+  }
+
+  @include vp-767 {
+    background-position: 30% 94%;
+  }
+}
+
+.products__card-item--card-3 div {
+  background-position: 78% 66%;
+
+  @include vp-1023 {
+    background-position: 18% 63%;
+  }
+
+  @include vp-767 {
+    background-position: 72% 69%;
+  }
+}
+
+.products__card-list h4 {
   position: absolute;
   top: 47px;
   left: 40px;
   max-width: 190px;
+  margin: 0;
+  font-family: $ff-roboto-condensed;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
   color: $color-default-white;
+
+  @include vp-1023 {
+    top: 37px;
+    left: 45px;
+    max-width: 150px;
+  }
+
+  @include vp-767 {
+    top: 28px;
+    left: 30px;
+    max-width: 135px;
+    font-size: 18px;
+    line-height: 30px;
+  }
 }
 
 .products__card-list span {
@@ -51,8 +186,14 @@
   width: 60px;
   height: 60px;
   margin: 0;
+  vertical-align: middle;
   border-radius: 3px 0 0 0;
   background-color: $color-blue;
+
+  @include vp-767 {
+    width: 40px;
+    height: 40px;
+  }
 
   &::before {
     position: absolute;
@@ -61,6 +202,15 @@
     width: 5px;
     height: 9px;
     background-image: url("../img/card_arrow.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
     content: "";
+
+    @include vp-767 {
+      top: 16px;
+    right: 17px;
+    width: 3px;
+    height: 7px;
+    }
   }
 }
