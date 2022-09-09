@@ -1,15 +1,7 @@
 @include vp-767 {
-  .accordion__item:not(.accordion__item--show) .accordion__body {
+  .accordion__item .accordion__body {
     display: none;
   }
-
-  /*.accordion__item--closed .accordion__body {
-    display: none;
-  }*/
-
-  /*.accordion__item--nojs .accordion__body {
-    display: block;
-  }*/
 
   .accordion__header {
     position: relative;
@@ -26,7 +18,6 @@
   }
 
   .accordion__item:not(.accordion__item--show) .accordion__header::after {
-  /*.accordion__item--closed .accordion__header::after {*/
     position: absolute;
     top: 20px;
     right: 7px;
@@ -35,4 +26,17 @@
     background-color: $color-grey;
     content: "";
   }
+
+  .accordion__item--nojs .accordion__header::after,
+  .accordion__item--nojs .accordion__header::before {
+    display: none;
+  }
+
+  .accordion__item.accordion__item--nojs .accordion__body,
+  .accordion__item.accordion__item--show .accordion__body {
+    display: block;
+  }
 }
+
+
+

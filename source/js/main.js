@@ -8,7 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const acc = document.querySelectorAll(".accordion__item");
 
   for (let i = 0; i < acc.length; i++) {
+    acc[i].classList.remove('accordion__item--nojs');
     acc[i].onclick = function() {
+
       const setClasses = !this.classList.contains('accordion__item--show');
         setClass(acc, 'accordion__item--show', 'remove');
 

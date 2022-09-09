@@ -32,7 +32,7 @@
 
   @include vp-1023 {
     min-height: 360px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     padding-left: 40px;
   }
 
@@ -91,6 +91,7 @@
 
 .advantages__block p {
   margin: 0;
+  margin-bottom: 10px;
   font-size: 16px;
   line-height: 135%;
 

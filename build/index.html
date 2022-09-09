@@ -151,17 +151,6 @@
           </form>
         </div>
       </section>
-      <!--
-        <section class="intro">
-          <div class="container">
-            <h1>Тестовая страница.</h1>
-            <p>На данной странице показан пример модальных окон.</p>
-            <p>Перед началом разработки не забудьте удалить всё содержимое &#8249;main&#8250;&#8249;&#8260;main&#8250;.</p>
-            <p><a class="btn" href="#" data-open-modal="feedback">modal--feedback link</a></p>
-            <p><a class="btn" href="#" data-open-modal="success">modal--success link</a></p>
-          </div>
-        </section>
-        -->
     </main>
     <footer class="page-footer accordion">
       <div class="page-footer__wrapper container">
@@ -200,7 +189,7 @@
             </ul>
           </div>
         </div>
-        <div class="page-footer__nav accordion__item">
+        <div class="page-footer__nav accordion__item accordion__item--nojs">
           <div class="accordion__header">
             <h2>Разделы сайта</h2>
           </div>
@@ -218,7 +207,7 @@
             </ul>
           </div>
         </div>
-        <div class="page-footer__contacts accordion__item">
+        <div class="page-footer__contacts accordion__item accordion__item--nojs">
           <div class="accordion__header">
             <h2>Наш офис</h2>
           </div>
@@ -238,7 +227,6 @@
     <div class="modal__wrapper">
       <div class="modal__overlay" data-close-modal></div>
       <div class="modal__content">
-        <!--<div class="feedback__wrapper">-->
           <h2>Закажите звонок</h2>
           <p>Оставьте контакты, мы проконсультируем <br>вас бесплатно в удобное время</p>
           <form class="modal__form" action="https://echo.htmlacademy.ru" method="post">
@@ -256,23 +244,8 @@
               <button class="modal__submit-button btn" type="submit">Отправить</button>
             </div>
           </form>
-        <!--</div>-->
         <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
           <svg width="20" height="20">
-            <use xlink:href="img/sprite_auto.svg#icon-close"></use>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal--preload modal--fit-content modal--no-scale" data-modal="success">
-    <div class="modal__wrapper">
-      <div class="modal__overlay" data-close-modal></div>
-      <div class="modal__content">
-        <p class="modal__description">Размер этой модалки зависит от ширины контента,<br> отключена анимация-скейл</p>
-        <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
-          <svg width="15" height="15">
             <use xlink:href="img/sprite_auto.svg#icon-close"></use>
           </svg>
         </button>

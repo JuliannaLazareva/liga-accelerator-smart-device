@@ -14,6 +14,12 @@
   }
 }
 
+.products .container {
+  @include vp-767 {
+    max-width: 320px;
+  }
+}
+
 .products h2 {
   margin-bottom: 54px;
   font-weight: 400;

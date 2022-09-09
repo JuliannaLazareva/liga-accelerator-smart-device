@@ -2,6 +2,7 @@
   min-height: 880px;
   margin-top: -120px;
   padding-top: 303px;
+  padding-bottom: 50px;
   background-image: url("../img/main_bg_desktop.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -87,6 +88,8 @@
 
 .main-block__button {
   margin: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
   padding: 17px 30px;
   font-weight: 700;
   font-size: 18px;

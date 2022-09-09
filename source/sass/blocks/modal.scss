@@ -191,6 +191,13 @@
   position: relative;
   align-self: flex-start;
   padding-left: 35px;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within,
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .modal__mark {
@@ -247,4 +254,10 @@ input[type="checkbox"]:checked + .modal__mark::after {
   vertical-align: middle;
   color: $color-default-white;
   background-color: $color-default-black;
+}
+
+.modal__close-btn:focus,
+.modal__close-btn:hover {
+  opacity: 0.5;
+  outline: 0;
 }
