@@ -1,14 +1,14 @@
 .feedback {
   padding-top: 166px;
   padding-bottom: 230px;
-  background: linear-gradient(139deg,#026593 637px, $color-blue 637px);
+  background: linear-gradient(139deg, #026593 637px, $color-blue 637px);
 
   @include vp-1919 {
-    background: linear-gradient(126deg,#026593 540px,#00b2ff 540px);
+    background: linear-gradient(126deg, #026593 540px, #00b2ff 540px);
   }
 
   @include vp-1279 {
-    background: linear-gradient(115deg,#026593 320px,#00b2ff 320px);
+    background: linear-gradient(115deg, #026593 320px, #00b2ff 320px);
   }
 
   @include vp-1023 {
@@ -18,8 +18,8 @@
   }
 
   @include vp-767 {
-    padding-top: 47px;
-    padding-bottom: 67px;
+    padding-top: 44px;
+    padding-bottom: 69px;
   }
 }
 
@@ -135,9 +135,11 @@
 }
 
 .feedback__form textarea {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+  margin-bottom: 16px;
   min-height: 155px;
   padding-top: 25px;
-  margin-bottom: 6px;
 
   @include vp-1023 {
     padding-top: 31px;
@@ -167,12 +169,6 @@
 .feedback__form input[type="tel"] {
   grid-column: 2/3;
   grid-row: 1/2;
-}
-
-.feedback__form textarea {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-  margin-bottom: 16px;
 }
 
 .feedback__form-wrap {

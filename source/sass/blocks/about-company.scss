@@ -27,13 +27,13 @@
   left: 350px;
   width: 150px;
   height: 320px;
-  background-image: url('../img/2022.png');
+  background-image: url("../img/2022.png");
   background-size: 100%;
   background-repeat: no-repeat;
   content: "";
 
   @include retina {
-    background-image: url('../img/2022@2x.png');
+    background-image: url("../img/2022@2x.png");
   }
 
   @include vp-1919 {
@@ -103,7 +103,7 @@
   text-transform: uppercase;
   color: $color-blue;
   background-color: inherit;
-  border: 1px solid #00B2FF;
+  border: 1px solid $color-blue;
   border-radius: 3px;
 
   &:focus,

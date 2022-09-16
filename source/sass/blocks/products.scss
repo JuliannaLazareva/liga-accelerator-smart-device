@@ -80,29 +80,14 @@
   opacity: 0.8;
 }
 
-.products__card-item div {
+//.products__card-item div {
+.products__card-item {
   position: relative;
-  background-size: 415%;
+  //background-size: 415%;
   width: 350px;
   height: 650px;
+  overflow: hidden;
   background-color: $color-bg-card;
-
-  @media (min-width: 1920px) {
-    background-image: url('../img/card_bg.jpg');
-
-
-    @include retina {
-      background-image: url('../img/card_bg@2x.jpg');
-    }
-  }
-
-  @include vp-1919 {
-    background-image: url('../img/card_bg.jpg');
-
-    @include retina {
-      background-image: url('../img/card_bg@2x.jpg');
-    }
-  }
 
   @include vp-1279 {
     width: 280px;
@@ -112,48 +97,53 @@
   @include vp-1023 {
     width: 670px;
     height: 250px;
-    background-size: 225%;
   }
 
   @include vp-767 {
     width: 270px;
-    background-size: 600%;
   }
 }
 
-.products__card-item--card-1 div {
-  background-position: 16% 69%;
+.products__card-item img {
+  position: absolute;
+  width: 100%;
+  height: 817px;
+  object-fit: cover;
+}
+
+.products__card-item--card-1 img {
+  object-position: -190px -116px;
 
   @include vp-1023 {
-    background-position: 30% 97%;
+    object-position: -246px -549px;
   }
 
   @include vp-767 {
-    background-position: 31% 52%;
+    object-position: -375px -298px;
   }
 }
 
-.products__card-item--card-2 div {
-  background-position: 47% 71%;
+.products__card-item--card-2 img {
+  object-position: -535px -121px;
 
   @include vp-1023 {
-    background-position: 76% 55%;
+    object-position: -627px -314px;
   }
 
   @include vp-767 {
-    background-position: 30% 94%;
+    object-position: -365px -537px;
   }
 }
 
-.products__card-item--card-3 div {
-  background-position: 78% 66%;
+.products__card-item--card-3 img {
+  object-position: -895px -111px;
 
   @include vp-1023 {
-    background-position: 18% 63%;
+    object-position: -148px -358px;
   }
 
   @include vp-767 {
-    background-position: 72% 69%;
+    object-position: -883px -394px;
   }
 }
 
@@ -214,9 +204,9 @@
 
     @include vp-767 {
       top: 16px;
-    right: 17px;
-    width: 3px;
-    height: 7px;
+      right: 17px;
+      width: 3px;
+      height: 7px;
     }
   }
 }

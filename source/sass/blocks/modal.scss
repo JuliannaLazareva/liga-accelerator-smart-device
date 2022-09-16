@@ -85,20 +85,6 @@
       width: 100%;
       padding: 20px;
     }
-
-    & h2 {
-      font-weight: 400;
-      font-size: 30px;
-      line-height: 42px;
-    }
-
-    & p {
-      margin: 0;
-      margin-bottom: 40px;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 22px;
-    }
   }
 
   &__close-btn {
@@ -114,10 +100,6 @@
     background: $color-transparent;
     border: none;
     cursor: pointer;
-
-    & svg {
-      fill: $color-default-white;
-    }
   }
 
   &--responsive {
@@ -151,6 +133,24 @@
 
     pointer-events: auto;
   }
+}
+
+.modal__close-btn svg {
+  fill: $color-default-white;
+}
+
+.modal__content h2 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 42px;
+}
+
+.modal__content p {
+  margin: 0;
+  margin-bottom: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .modal__form {

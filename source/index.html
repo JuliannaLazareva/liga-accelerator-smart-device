@@ -26,8 +26,8 @@
         </div>
         <div class="page-header__contacts">
           <span class="visually-hidden">Наши контакты</span>
-          <p><a class="page-header__email" href="mailto:info@sd.ru"><span>info@sd.ru</span></a></p>
-          <p><a class="page-header__phone" href="tel:84950005252"><span>+7 (495) 000 52 52</span></a></p>
+          <a class="page-header__email" href="mailto:info@sd.ru"><span>info@sd.ru</span></a>
+          <a class="page-header__phone" href="tel:84950005252"><span>+7 (495) 000 52 52</span></a>
           <button class="page-header__button btn" type="button" data-open-modal="feedback">Заказать звонок</button>
         </div>
       </div>
@@ -84,18 +84,18 @@
         <p>Мы поставляем электронные комплектующие, производим печатные платы и предоставляем мировые технологии с 1997
           года. Выполняем срочные заказы и пилотные образцы до 10 дней.</p>
         <p>Наши поставщики - мировые производители электронных компонентов: OSRAM, CREE, HOLGLITRONIC, REFOND.
-        <span class="about-company__more about-company__more--mobile-only">Печатные
-          платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог (РЖД),
-          РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители
-          светотехники России.</span>
-          </p><span class="about-company__break-text"></span>
-
-            <p><span class="about-company__more about-company__more--tablet">Smart Device - это команда профессионалов. Через нас прошло более 1 000 000 клиентов, 70% из которых
-              продолжают сотрудничество по сей день. На данный момент насчитывается более 14 офисов по всей стране и 20
-              городов присутствия.</span></p>
-            <p><span class="about-company__more about-company__more--tablet-2">Мы стремимся к постоянному развитию и повышению уровня качества продукции, производимой внутри компании.
-              Использование инновационных технологий помогает экономить деньги и время наших клиентов</span></p>
-
+          <span class="about-company__more about-company__more--mobile-only">Печатные
+            платы и комплектующие Service Devices применяются на предприятиях Российских Железных Дорог (РЖД),
+            РоссАвтоПрома (ВАЗ, АвтоГАЗ), МинАтома, СпецМедТехники. Среди наших клиентов крупнейшие Производители
+            светотехники России.</span>
+        </p><span class="about-company__break-text"></span>
+        <p><span class="about-company__more about-company__more--tablet">Smart Device - это команда профессионалов.
+            Через нас прошло более 1 000 000 клиентов, 70% из которых
+            продолжают сотрудничество по сей день. На данный момент насчитывается более 14 офисов по всей стране и 20
+            городов присутствия.</span></p>
+        <p><span class="about-company__more about-company__more--tablet-2">Мы стремимся к постоянному развитию и
+            повышению уровня качества продукции, производимой внутри компании.
+            Использование инновационных технологий помогает экономить деньги и время наших клиентов</span></p>
         <button class="about-company__button btn" type="button">Подробнее</button>
       </section>
       <section class="products">
@@ -105,26 +105,35 @@
           <ul class="products__card-list">
             <li class="products__card-item products__card-item--card-1">
               <a href="#">
-                <div>
-                  <h4>Производство печатных плат</h4>
-                  <span></span>
-                </div>
+                <picture>
+                  <source type="image/webp" srcset="img/card_bg.webp 1x, img/card_bg@2x.webp 2x">
+                  <!-- 1х: 1493px; 2x: 2986px -->
+                  <img src="../img/card_bg.jpg" srcset="/img/card_bg@2x.jpg" alt="Производство печатных плат" width="1493" height="817">
+                </picture>
+                <h4>Производство печатных плат</h4>
+                <span></span>
               </a>
             </li>
             <li class="products__card-item products__card-item--card-2">
               <a href="#">
-                <div>
-                  <h4>Монтаж печатных плат</h4>
-                  <span></span>
-                </div>
+                <picture>
+                  <source type="image/webp" srcset="img/card_bg.webp 1x, img/card_bg@2x.webp 2x">
+                  <!-- 1х: 1493px; 2x: 2986px -->
+                  <img src="/img/card_bg.jpg" srcset="/img/card_bg@2x.jpg" alt="Монтаж печатных плат" width="1493" height="817">
+                </picture>
+                <h4>Монтаж печатных плат</h4>
+                <span></span>
               </a>
             </li>
             <li class="products__card-item products__card-item--card-3">
               <a href="#">
-                <div>
-                  <h4>Комплектующие для&nbsp;светотехники</h4>
-                  <span></span>
-                </div>
+                <picture>
+                  <source type="image/webp" srcset="img/card_bg.webp 1x, img/card_bg@2x.webp 2x">
+                  <!-- 1х: 1493px; 2x: 2986px -->
+                  <img src="../img/card_bg.jpg" srcset="/img/card_bg@2x.jpg" alt="Комплектующие для светотехники" width="1493" height="817">
+                </picture>
+                <h4>Комплектующие для&nbsp;светотехники</h4>
+                <span></span>
               </a>
             </li>
           </ul>
@@ -227,23 +236,23 @@
     <div class="modal__wrapper">
       <div class="modal__overlay" data-close-modal></div>
       <div class="modal__content">
-          <h2>Закажите звонок</h2>
-          <p>Оставьте контакты, мы проконсультируем <br>вас бесплатно в удобное время</p>
-          <form class="modal__form" action="https://echo.htmlacademy.ru" method="post">
-            <label for="modal-user-name" class="visually-hidden">Ваше имя:</label>
-            <input id="modal-user-name" type="text" name="user-name" placeholder="Имя" required autofocus>
-            <label for="modal-user-phone" class="visually-hidden">Ваш телефон:</label>
-            <input id="modal-user-phone" type="tel" name="tel" placeholder="Телефон" required>
-            <textarea placeholder="Ваш вопрос"></textarea>
-            <div class="modal__form-wrap">
-              <label>
-                <input class="visually-hidden" type="checkbox" checked required>
-                <span class="modal__mark"></span>
-                <span class="modal__label">Я согласен на обработку персональных данных</span>
-              </label>
-              <button class="modal__submit-button btn" type="submit">Отправить</button>
-            </div>
-          </form>
+        <h2>Закажите звонок</h2>
+        <p>Оставьте контакты, мы проконсультируем <br>вас бесплатно в удобное время</p>
+        <form class="modal__form" action="https://echo.htmlacademy.ru" method="post">
+          <label for="modal-user-name" class="visually-hidden">Ваше имя:</label>
+          <input id="modal-user-name" type="text" name="user-name" placeholder="Имя" required autofocus>
+          <label for="modal-user-phone" class="visually-hidden">Ваш телефон:</label>
+          <input id="modal-user-phone" type="tel" name="tel" placeholder="Телефон" required>
+          <textarea placeholder="Ваш вопрос"></textarea>
+          <div class="modal__form-wrap">
+            <label>
+              <input class="visually-hidden" type="checkbox" checked required>
+              <span class="modal__mark"></span>
+              <span class="modal__label">Я согласен на обработку персональных данных</span>
+            </label>
+            <button class="modal__submit-button btn" type="submit">Отправить</button>
+          </div>
+        </form>
         <button class="modal__close-btn btn-reset" type="button" aria-label="Закрыть попап" data-close-modal>
           <svg width="20" height="20">
             <use xlink:href="img/sprite_auto.svg#icon-close"></use>
