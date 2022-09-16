@@ -46,14 +46,14 @@
   border-color: $color-blue;
   color: $color-smoky-white;
   background-color: $color-blue;
+}
 
-  & h3 {
-    color: $color-smoky-white;
-  }
+.advantages__block:hover h3 {
+  color: $color-smoky-white;
+}
 
-  & svg {
-    fill: $color-smoky-white;
-  }
+.advantages__block:hover svg {
+  fill: $color-smoky-white;
 }
 
 .advantages__block svg {

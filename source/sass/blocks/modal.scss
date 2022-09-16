@@ -28,110 +28,103 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
 
-  &__wrapper {
-    position: relative;
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
 
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: flex-start;
+.modal__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 500px;
+  padding: 40px;
+  color: $color-default-white;
+  background-color: $color-blue;
+
+  @include vp-767 {
     width: 100%;
-    min-height: 100%;
-    padding: 146px 718px 84px 702px;
-
-    @include vp-1919 {
-      padding: 146px 450px 84px 471px;
-    }
-
-    @include vp-1439 {
-      padding: 146px 390px 84px;
-    }
-
-    @include vp-1279 {
-      padding: 146px 250px 84px;
-    }
-
-    @include vp-767 {
-      padding: 60px 16px;
-    }
+    padding: 20px;
   }
+}
 
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.modal__close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: $color-transparent;
+  border: none;
+  cursor: pointer;
+}
 
+.modal--responsive {
+  .modal__content {
     width: 100%;
-    height: 100%;
-
-    cursor: pointer;
   }
+}
 
-  &__content {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-
-    width: 500px;
-    padding: 40px;
-
-    color: $color-default-white;
-    background-color: $color-blue;
+.modal--fit-content {
+  .modal__content {
+    width: auto;
 
     @include vp-767 {
       width: 100%;
-      padding: 20px;
     }
   }
+}
 
-  &__close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 1;
+.modal--no-scale {
+  transform: none;
+}
 
-    width: 40px;
-    height: 40px;
-    padding: 0;
+.modal--preload {
+  transition: none;
+}
 
-    background: $color-transparent;
-    border: none;
-    cursor: pointer;
+.modal.is-active {
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__wrapper {
+  position: relative;
+
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100%;
+  padding: 146px 718px 84px 702px;
+
+  @include vp-1919 {
+    padding: 146px 450px 84px 471px;
   }
 
-  &--responsive {
-    .modal__content {
-      width: 100%;
-    }
+  @include vp-1439 {
+    padding: 146px 390px 84px;
   }
 
-  &--fit-content {
-    .modal__content {
-      width: auto;
-
-      @include vp-767 {
-        width: 100%;
-      }
-    }
+  @include vp-1279 {
+    padding: 146px 250px 84px;
   }
 
-  &--no-scale {
-    transform: none;
-  }
-
-  &--preload {
-    transition: none;
-  }
-
-  &.is-active {
-    transform: scale(1);
-    visibility: visible;
-    opacity: 1;
-
-    pointer-events: auto;
+  @include vp-767 {
+    padding: 60px 16px;
   }
 }
 

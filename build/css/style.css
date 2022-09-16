@@ -699,24 +699,6 @@ button,
   display: none;
 }
 
-.modal__wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  width: 100%;
-  min-height: 100%;
-  padding: 146px 718px 84px 702px;
-}
-
 .modal__overlay {
   position: absolute;
   top: 0;
@@ -784,6 +766,24 @@ button,
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
+}
+
+.modal__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100%;
+  padding: 146px 718px 84px 702px;
 }
 
 .modal__close-btn svg {
@@ -2094,10 +2094,6 @@ input[type="checkbox"]:checked + .feedback__mark::after {
     padding: 0 25px;
   }
 
-  .modal__wrapper {
-    padding: 60px 16px;
-  }
-
   .modal__content {
     width: 100%;
     padding: 20px;
@@ -2105,6 +2101,10 @@ input[type="checkbox"]:checked + .feedback__mark::after {
 
   .modal--fit-content .modal__content {
     width: 100%;
+  }
+
+  .modal__wrapper {
+    padding: 60px 16px;
   }
 
   .modal__mark {
