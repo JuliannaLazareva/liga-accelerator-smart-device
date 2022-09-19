@@ -169,6 +169,14 @@
   color: $color-default-white;
 }
 
+.modal__form input:hover,
+.modal__form textarea:hover,
+.modal__form input:focus,
+.modal__form textarea:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
 .modal__form textarea {
   min-height: 155px;
   margin-bottom: 17px;

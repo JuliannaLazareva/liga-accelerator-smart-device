@@ -161,6 +161,14 @@
   color: $color-default-white;
 }
 
+.feedback__form input:hover,
+.feedback__form textarea:hover,
+.feedback__form input:focus,
+.feedback__form textarea:focus {
+  opacity: 0.8;
+  outline: none;
+}
+
 .feedback__form input[type="text"] {
   grid-column: 1/2;
   grid-row: 1/2;

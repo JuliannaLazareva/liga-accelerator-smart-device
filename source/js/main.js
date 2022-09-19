@@ -104,6 +104,24 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  // отправка текста из textarea в localStorage
+
+  if (window.localStorage) {
+    const elements = document.querySelectorAll('[name]');
+
+    for (let i = 0, length = elements.length; i < length; i++) {
+      (function (element) {
+        const name = element.getAttribute('name');
+
+        element.value = localStorage.getItem(name) || element.value;
+
+        element.onkeyup = function () {
+          localStorage.setItem(name, element.value);
+        };
+      })(elements[i]);
+    }
+  }
+
   // Utils
   // ---------------------------------
 
