@@ -1,5 +1,5 @@
 import {iosVhFix} from './utils/ios-vh-fix';
-import {initModals} from './modules/modals/init-modals';
+// import {initModals} from './modules/modals/init-modals';
 
 // ---------------------------------
 
@@ -63,45 +63,100 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Маска телефона
 
-  [].forEach.call(document.querySelectorAll('[type="tel"]'), function (input) {
-    let keyCode;
-    function mask(event) {
-      event.keyCode && (keyCode = event.keyCode);
-      let pos = this.selectionStart;
-      if (pos < 3) {
-        event.preventDefault();
+  let phoneInputs = document.querySelectorAll('[type="tel"]');
+  let inputs = document.querySelectorAll('input');
+  let form = document.querySelector('.feedback__form');
+  let modalForm = document.querySelector('.modal__form');
+
+  window.onload = function () {
+    inputs.value = '';
+  };
+
+  let getInputNumbersValue = function (input) {
+    return input.value.replace(/\D/g, '');
+  };
+
+  let onPhoneInput = function (e) {
+    let input = e.target;
+    let inputNumbersValue = getInputNumbersValue(input);
+    let formattedInputValue = '';
+    let selectionStart = input.selectionStart;
+
+    if (!inputNumbersValue) {
+      input.value = '';
+      return;
+    }
+
+    if (input.value.length !== selectionStart) {
+      if (e.data && /\D/g.test(e.data)) {
+        input.value = inputNumbersValue;
       }
-      let matrix = '+7 (___) ___ ____';
-      let i = 0;
-      let def = matrix.replace(/\D/g, '');
-      let val = this.value.replace(/\D/g, '');
-      let newValue = matrix.replace(/[_\d]/g, function (a) {
-        return i < val.length ? val.charAt(i++) || def.charAt(i) : a;
-      });
-      i = newValue.indexOf('_');
-      if (i != -1) {
-        i < 5 && (i = 3);
-        newValue = newValue.slice(0, i);
+      return;
+    }
+
+    if (inputNumbersValue.indexOf(inputNumbersValue[0]) > -1) {
+      formattedInputValue = '+7' + ' ';
+      if (inputNumbersValue.length > 1) {
+        formattedInputValue += '(' + inputNumbersValue.substring(1, 4);
       }
-      let reg = matrix.substr(0, this.value.length).replace(/_+/g,
-          function (a) {
-            return '\\d{1,' + a.length + '}';
-          }).replace(/[+()]/g, '\\$&');
-      reg = new RegExp('^' + reg + '$');
-      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
-        this.value = newValue;
+      if (inputNumbersValue.length >= 5) {
+        formattedInputValue += ') ' + inputNumbersValue.substring(4, 7);
       }
-      if (event.type == 'blur' && this.value.length < 5) {
-        this.value = '';
+      if (inputNumbersValue.length >= 8) {
+        formattedInputValue += '-' + inputNumbersValue.substring(7, 9);
+      }
+      if (inputNumbersValue.length >= 10) {
+        formattedInputValue += '-' + inputNumbersValue.substring(9, 11);
       }
     }
 
-    input.addEventListener('input', mask, false);
-    input.addEventListener('focus', mask, false);
-    input.addEventListener('blur', mask, false);
-    input.addEventListener('keydown', mask, false);
+    input.value = formattedInputValue;
 
-  });
+    form.onsubmit = function () {
+      if (input.value.length < 18) {
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    modalForm.onsubmit = function () {
+      if (input.value.length < 18) {
+        return false;
+      } else {
+        return true;
+      }
+    };
+
+    // после обновления страницы не сбрасывается введенное значение и отправляется неправильное значение
+  };
+
+  let onPhoneKeyDown = function (e) {
+    let input = e.target;
+    if (e.keyCode === 8 && getInputNumbersValue(input).length === 1) {
+      input.value = '';
+    }
+  };
+
+  let onPhonePaste = function (e) {
+    let pasted = e.clipboardData || window.clipboardData;
+    let input = e.target;
+    let inputNumbersValue = getInputNumbersValue(input);
+
+    if (pasted) {
+      let pastedText = pasted.getData('Text');
+      if (/\D/g.test(pastedText)) {
+        input.value = inputNumbersValue;
+      }
+    }
+  };
+
+  for (let i = 0; i < phoneInputs.length; i++) {
+    let input = phoneInputs[i];
+    input.addEventListener('input', onPhoneInput);
+    input.addEventListener('keydown', onPhoneKeyDown);
+    input.addEventListener('paste', onPhonePaste);
+  }
 
 
   // отправка текста из textarea в localStorage
@@ -122,6 +177,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+
   // Utils
   // ---------------------------------
 
@@ -133,7 +189,36 @@ window.addEventListener('DOMContentLoaded', () => {
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    initModals();
+    // initModals();
+    const modal = document.querySelector('.modal');
+    const inputName = modal.querySelector('#modal-user-name');
+    const isEscapeKey = (evt) => evt.key === 'Escape';
+
+    const onModalEscKeydown = (evt) => {
+      if (isEscapeKey(evt)) {
+        evt.preventDefault();
+        onCloseModal();
+      }
+    };
+
+    const onOpenModal = ()=> {
+      modal.classList.add('is-active');
+      if (modal.classList.contains('is-active')) {
+        inputName.focus();
+      }
+      document.addEventListener('keydown', onModalEscKeydown);
+    };
+
+    const onCloseModal = () => {
+      modal.classList.remove('is-active');
+      document.removeEventListener('keydown', onModalEscKeydown);
+    };
+
+    document.querySelector('.page-header__button').addEventListener('click', onOpenModal);
+
+    document.querySelector('.modal__close-btn').addEventListener('click', onCloseModal);
+
+    document.querySelector('.modal__overlay').addEventListener('click', onCloseModal);
   });
 });
 

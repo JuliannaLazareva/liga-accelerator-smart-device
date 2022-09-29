@@ -19,7 +19,7 @@
 
   @include vp-767 {
     padding-top: 44px;
-    padding-bottom: 69px;
+    padding-bottom: 67px;
   }
 }
 
@@ -98,6 +98,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    gap: 0;
   }
 }
 
@@ -128,10 +129,15 @@
 .feedback__form input,
 .feedback__form textarea {
   padding: 15px;
+
   color: $color-default-white;
   background-color: rgba(4, 20, 39, 0.15);
   border: none;
   border-radius: 3px;
+
+  @include vp-767 {
+    margin-bottom: 21px;
+  }
 }
 
 .feedback__form textarea {
@@ -147,7 +153,7 @@
 
   @include vp-767 {
     min-height: 180px;
-    margin-bottom: 11px;
+    margin-bottom: 31px;
     padding-top: 24px;
   }
 }
@@ -247,6 +253,7 @@
   background-color: inherit;
   border: 1px solid $color-default-white;
   border-radius: 3px;
+  cursor: pointer;
 
   @include vp-1023 {
     top: 8px;
@@ -277,6 +284,7 @@ input[type="checkbox"]:checked + .feedback__mark::after {
   line-height: 16px;
   opacity: 0.8;
   vertical-align: middle;
+  cursor: pointer;
 
   @include vp-1023 {
     margin-top: 0;

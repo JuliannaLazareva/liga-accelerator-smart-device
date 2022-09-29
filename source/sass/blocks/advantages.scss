@@ -8,7 +8,7 @@
 
   @include vp-767 {
     padding-top: 53px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
   }
 }
 
@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0;
   }
 }
 
@@ -37,8 +38,15 @@
   }
 
   @include vp-767 {
-    width: 270px;
+    width: 100%;
+    min-height: min-content;
     padding: 29px 25px 35px;
+    margin-bottom: 30px;
+  }
+
+  @include vp-374 {
+    width: 270px;
+    min-height: 360px;
   }
 }
 
@@ -121,7 +129,7 @@
   }
 }
 
-@include vp-767 {
+@include vp-374 {
   .advantages__block--deadlines,
   .advantages__block--suppliers {
     min-height: 340px;

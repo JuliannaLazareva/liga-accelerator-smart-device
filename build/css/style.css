@@ -909,6 +909,7 @@ button,
   background-color: inherit;
   border: 1px solid #ffffff;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked + .modal__mark::after {
@@ -932,6 +933,7 @@ input[type="checkbox"]:checked + .modal__mark::after {
   line-height: 16px;
   opacity: 0.8;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .modal__submit-button {
@@ -1157,8 +1159,9 @@ input[type="checkbox"]:checked + .modal__mark::after {
   padding: 0;
 }
 
-.products__card-item a:hover {
-  opacity: 0.8;
+.products__card-item a:hover,
+.products__card-item a:focus {
+  opacity: 0.5;
 }
 
 .products__card-item {
@@ -1655,6 +1658,7 @@ input[type="checkbox"]:checked + .modal__mark::after {
   background-color: inherit;
   border: 1px solid #ffffff;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked + .feedback__mark::after {
@@ -1678,6 +1682,7 @@ input[type="checkbox"]:checked + .feedback__mark::after {
   line-height: 16px;
   opacity: 0.8;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 /* @media (hover: hover), screen and (min-width: 0\0) {
@@ -2196,11 +2201,7 @@ input[type="checkbox"]:checked + .feedback__mark::after {
 
   .products {
     padding-top: 47px;
-    padding-bottom: 72px;
-  }
-
-  .products .container {
-    max-width: 320px;
+    padding-bottom: 42px;
   }
 
   .products h2 {
@@ -2216,8 +2217,13 @@ input[type="checkbox"]:checked + .feedback__mark::after {
     color: #ffffff;
   }
 
+  .products__card-list {
+    gap: 0;
+  }
+
   .products__card-item {
-    width: 270px;
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .products__card-item--card-1 img {
@@ -2364,7 +2370,7 @@ input[type="checkbox"]:checked + .feedback__mark::after {
 
   .advantages {
     padding-top: 53px;
-    padding-bottom: 30px;
+    padding-bottom: 0;
   }
 
   .advantages__wrapper {
@@ -2378,11 +2384,16 @@ input[type="checkbox"]:checked + .feedback__mark::after {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    gap: 0;
   }
 
   .advantages__block {
-    width: 270px;
+    width: 100%;
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
     padding: 29px 25px 35px;
+    margin-bottom: 30px;
   }
 
   .advantages__block svg {
@@ -2397,36 +2408,6 @@ input[type="checkbox"]:checked + .feedback__mark::after {
 
   .advantages__block p {
     font-size: 14px;
-  }
-
-  .advantages__block--deadlines,
-  .advantages__block--suppliers {
-    min-height: 340px;
-  }
-
-  .advantages__block--deadlines p,
-  .advantages__block--suppliers p {
-    max-width: 215px;
-  }
-
-  .advantages__block--confidentiality,
-  .advantages__block--personalization {
-    min-height: 325px;
-  }
-
-  .advantages__block--confidentiality svg,
-  .advantages__block--personalization svg {
-    margin-bottom: 13px;
-  }
-
-  .advantages__block--confidentiality h3,
-  .advantages__block--personalization h3 {
-    margin-bottom: 13px;
-  }
-
-  .advantages__block--confidentiality p,
-  .advantages__block--personalization p {
-    max-width: 200px;
   }
 
   .about-company {
@@ -2459,7 +2440,7 @@ input[type="checkbox"]:checked + .feedback__mark::after {
 
   .feedback {
     padding-top: 44px;
-    padding-bottom: 69px;
+    padding-bottom: 67px;
   }
 
   .feedback h2 {
@@ -2484,11 +2465,17 @@ input[type="checkbox"]:checked + .feedback__mark::after {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
+    gap: 0;
+  }
+
+  .feedback__form input,
+  .feedback__form textarea {
+    margin-bottom: 21px;
   }
 
   .feedback__form textarea {
     min-height: 180px;
-    margin-bottom: 11px;
+    margin-bottom: 31px;
     padding-top: 24px;
   }
 
@@ -2512,6 +2499,47 @@ input[type="checkbox"]:checked + .feedback__mark::after {
   .feedback__mark {
     top: 7px;
     left: 4px;
+  }
+}
+
+@media (max-width: 374px) {
+  .products__card-item {
+    width: 270px;
+  }
+
+  .advantages__block {
+    width: 270px;
+    min-height: 360px;
+  }
+
+  .advantages__block--deadlines,
+  .advantages__block--suppliers {
+    min-height: 340px;
+  }
+
+  .advantages__block--deadlines p,
+  .advantages__block--suppliers p {
+    max-width: 215px;
+  }
+
+  .advantages__block--confidentiality,
+  .advantages__block--personalization {
+    min-height: 325px;
+  }
+
+  .advantages__block--confidentiality svg,
+  .advantages__block--personalization svg {
+    margin-bottom: 13px;
+  }
+
+  .advantages__block--confidentiality h3,
+  .advantages__block--personalization h3 {
+    margin-bottom: 13px;
+  }
+
+  .advantages__block--confidentiality p,
+  .advantages__block--personalization p {
+    max-width: 200px;
   }
 }
 

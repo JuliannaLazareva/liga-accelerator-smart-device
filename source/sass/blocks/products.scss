@@ -10,13 +10,7 @@
 
   @include vp-767 {
     padding-top: 47px;
-    padding-bottom: 72px;
-  }
-}
-
-.products .container {
-  @include vp-767 {
-    max-width: 320px;
+    padding-bottom: 42px;
   }
 }
 
@@ -74,16 +68,19 @@
     align-items: center;
     gap: 30px;
   }
+
+  @include vp-767 {
+    gap: 0;
+  }
 }
 
-.products__card-item a:hover {
-  opacity: 0.8;
+.products__card-item a:hover,
+.products__card-item a:focus {
+  opacity: 0.5;
 }
 
-//.products__card-item div {
 .products__card-item {
   position: relative;
-  //background-size: 415%;
   width: 350px;
   height: 650px;
   overflow: hidden;
@@ -100,6 +97,11 @@
   }
 
   @include vp-767 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  @include vp-374 {
     width: 270px;
   }
 }
