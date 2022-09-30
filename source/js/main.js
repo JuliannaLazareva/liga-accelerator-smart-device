@@ -64,13 +64,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // Маска телефона
 
   let phoneInputs = document.querySelectorAll('[type="tel"]');
-  let inputs = document.querySelectorAll('input');
   let form = document.querySelector('.feedback__form');
   let modalForm = document.querySelector('.modal__form');
-
-  window.onload = function () {
-    inputs.value = '';
-  };
 
   let getInputNumbersValue = function (input) {
     return input.value.replace(/\D/g, '');
@@ -127,14 +122,12 @@ window.addEventListener('DOMContentLoaded', () => {
         return true;
       }
     };
-
-    // после обновления страницы не сбрасывается введенное значение и отправляется неправильное значение
   };
 
   let onPhoneKeyDown = function (e) {
-    let input = e.target;
-    if (e.keyCode === 8 && getInputNumbersValue(input).length === 1) {
-      input.value = '';
+    let inputValue = e.target.value.replace(/\D/g, '');
+    if (e.keyCode === 8 && inputValue.length === 1) {
+      e.target.value = '';
     }
   };
 
@@ -151,11 +144,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  for (let i = 0; i < phoneInputs.length; i++) {
-    let input = phoneInputs[i];
-    input.addEventListener('input', onPhoneInput);
-    input.addEventListener('keydown', onPhoneKeyDown);
-    input.addEventListener('paste', onPhonePaste);
+  for (let phoneInput of phoneInputs) {
+    phoneInput.addEventListener('keydown', onPhoneKeyDown);
+    phoneInput.addEventListener('input', onPhoneInput, false);
+    phoneInput.addEventListener('paste', onPhonePaste, false);
   }
 
 
